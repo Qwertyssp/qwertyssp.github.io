@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Qwerty</title>
+  
+  <subtitle>不积跬步，无以至千里。不积小流，无以成江海。</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://nonblock.cn/"/>
+  <updated>2017-09-11T06:24:24.145Z</updated>
+  <id>http://nonblock.cn/</id>
+  
+  <author>
+    <name>shang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>为什么学习python</title>
+    <link href="http://nonblock.cn/2017/09/11/why-python/"/>
+    <id>http://nonblock.cn/2017/09/11/why-python/</id>
+    <published>2017-09-11T05:20:40.000Z</published>
+    <updated>2017-09-11T06:24:24.145Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于工作性质原因，主要是用的语言是C。工作这么多年，也在业余时间耳闻目染了很多其他语言，了解过的包括:lua, python, c++, java, js。基本上涵盖了目前主流的开发语言。由于一直没有需求，也就没有仔细学习并运用。所以，也谈不上学会了，只能说对语法有点了解。由于最近时间比较充裕，希望重新学习一门实用性比较强的语言。一来用来锻炼一下自己切入新领域的学习能力，二来拓宽一下自己的视野。</p><h2 id="Why-Python"><a href="#Why-Python" class="headerlink" title="Why Python ?"></a>Why Python ?</h2><p>语言之争是程序界永恒的话题。长长的鄙视链，永无止境。这显然不是此文目的。也并不是我选择这门语言的依据。<br>我们知道现有的语言的编程范式有：过程式，面向对象，函数式，逻辑式。但是，这么多范式，究其原因，无非都有个共同的主题：技术的发展都是在围绕着解决“软件的复杂度”这个基本的需求而发展的。<br>说了这么多废话，现在来说下，为啥要学Python。Python作为一门脚本语言，简洁，易读，可扩展。非常接近自然语言，很适合初学者入门。当然，上面是官方腔。因为我还没认真看过。不过，据我所知，Python确实简单，拥有强大基础库以及第三方库，以此为基础我们非常容易实现自己想要的业务，无需重新造轮子。这极有利于我们去实现一些常用的脚本功能，或者作为脚手架搭建测试环境，极大的提高我们的工作效率。<br>最近几年函数式编程语言逐渐浮出水面，很多语言也开始支持函数式编程的特性，Python也对函数式编程做了部分支持。作为一名开发人员，对新技术要不断学习探索，这也是我选用此语言的一个原因。<br>更重要的原因是：没事写点小东西，用来安抚自己。告诉别人，看!我也是程序员~</p><h2 id="How-To-Learn"><a href="#How-To-Learn" class="headerlink" title="How To Learn ?"></a>How To Learn ?</h2><p>如何去学习一门新的编程语言呢？这也是我需要解决的一个问题。《SICP》一书的作者列举了三点我们需要关注的语言特性：</p><ul><li>primitive elements. 基本元素</li><li>mean of combination. 组合手段</li><li>means of abstraction. 抽象手段</li></ul><p>以上特性，基本蕴含了所有编程语言的特性，并且也是一个语言设计者从开始就要考虑的。<br>primitive elements，可以理解为语言的基本符号，也就是词法部分。<br>mean of combination，可以理解为李永基本元素通过组合的过程构建大型程序的手段。<br>mean of abstraction，表示抽象，抽象是解决软件复杂度的重要手段，让软件的可读性，可扩展，可重复可利用得到提升。</p><p>我将会基于这三点去学习Python, 当然，如果此方法可行，也会总结提炼用于以后的工作当中。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;由于工作性质原因，主要是用的语言是C。工作这么多年，也在业余时间耳闻目染了很多其他语言，了解过的包括:lua, python, c++, java, js。基本上涵盖了目前主流的开发语言。由于一直没有需求，也就没有仔细学习并运用。所以，也谈不上学会了，只能说对语法有点了解。
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://nonblock.cn/categories/python/"/>
+    
+    
+      <category term="编程语言" scheme="http://nonblock.cn/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>符号冲突问题</title>
+    <link href="http://nonblock.cn/2017/08/17/symbol-multiple-definition/"/>
+    <id>http://nonblock.cn/2017/08/17/symbol-multiple-definition/</id>
+    <published>2017-08-17T07:46:24.000Z</published>
+    <updated>2017-08-19T08:08:55.054Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近项目中遇到的一个问题：项目需求增加功能B，为了尽快完成此功能，选择使用开源库，此库依赖于libpng.a。由于我们的软件只是整个工程架构中的一部分，原有的软件已经使用了libpng.a，但是版本未知。因此在最终编译的时候会产生符号冲突的问题。<br><a id="more"></a><br>最简单暴力的方法无非是手动替换所有编译时报错的函数名，但是，本来使用的就是开源库，符号冲突的数量是人工修改无法承担的。<br>后来咨询了下<a href="http://blog.gotocoding.com" title="周大神博客" target="_blank" rel="external">重归混沌</a>同学，大神给的意见是修改替换.o目标文件中的符号名，当然是使用脚本修改。</p><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>C编译过程中，编译器和汇编器会将每个C文件编译成可重定位的目标文件，即我们通常所见的.o文件。此文件包含二进制代码和数据，其形式可以在编译时与其他可重定位目标文件合并起来，创建一个可执行的目标文件。<br>每一个可重定位的目标文件都包含一个符号表，它存放在程序中定义和引用的函数的和全局变量的信息，我们可以通过objdump工具列出所有符号。<br>实际上，在链接阶段，链接器完成符号解析之后，就把代码中的每个符号引用和确定的一个符号定义联系起来，此刻，连接器知道了输入目标模块中的代码节和数据节的确定大小，并开始重定位，即合并输入模块，并未每个符号分配运行时地址。</p><p>既然如此，我们便可以修改.o的符号名，并使用修改后的.o文件生成.a静态库，以达到目的。修改.o的符号名，我们使用objcopy这个工具完成。</p><h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>获取符号名，我们使用下面的一段lua脚本, 来获取所有的全局函数。<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--rename.lua</span></div><div class="line"><span class="keyword">local</span> list = &#123;&#125;</div><div class="line"><span class="keyword">local</span> reg = <span class="string">"([^%s]+)%s+([^%s]+)%s+([^%s]+)"</span>..</div><div class="line">        <span class="string">"%s+([^%s]+)%s+([^%s]+)%s+([^%s]+)"</span></div><div class="line"><span class="keyword">for</span> l <span class="keyword">in</span> io.<span class="built_in">stdin</span>:<span class="built_in">lines</span>() <span class="keyword">do</span></div><div class="line">        <span class="keyword">local</span> a,b,c,d,e,f = string.match(l, reg)</div><div class="line">        <span class="keyword">if</span> a <span class="keyword">and</span> c == <span class="string">"F"</span> <span class="keyword">and</span> b == <span class="string">"g"</span> <span class="keyword">then</span></div><div class="line">                list[#list + <span class="number">1</span>] = <span class="string">" --redefine-sym "</span></div><div class="line">                list[#list + <span class="number">1</span>] = string.format(<span class="string">"%s=%s_avit"</span>, f, f)</div><div class="line">        <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"#/bin/sh"</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"objcopy "</span> .. table.concat(list) .. <span class="string">" $1"</span>)</div></pre></td></tr></table></figure></p><p>我们使用如下命令来手机所有的.o文件的F符号，并产生修改符号所用的脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find . -name &apos;*.o&apos; | xargs objdump -t | ./lua rename &gt; rename.sh</div></pre></td></tr></table></figure></p><p>再使用下面的命令，就可以把所有的函数名增加一个avit后缀<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find . -name &apos;*.o&apos; | xargs -n 1 sh ./rename.sh</div></pre></td></tr></table></figure></p><p>当然，其他平台我们需要使用其平台的SDK所提供的objcopy以及objdump来进行修改。<br>至此，我们将所有.o文件的函数名已经修改，只要我们使用这些.o文件再次生成.a文件，就可将其放入工程进行使用。</p><p>后来研究<a href="http://blog.csdn.net/xasylt/article/details/46712765" title="符号冲突问题解决" target="_blank" rel="external">其他博文</a>发现，似乎也可以通过nm工具来替代objdump工具来获取符号名。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近项目中遇到的一个问题：项目需求增加功能B，为了尽快完成此功能，选择使用开源库，此库依赖于libpng.a。由于我们的软件只是整个工程架构中的一部分，原有的软件已经使用了libpng.a，但是版本未知。因此在最终编译的时候会产生符号冲突的问题。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="C/C++" scheme="http://nonblock.cn/categories/C-C/"/>
+    
+    
+      <category term="编程语言" scheme="http://nonblock.cn/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一个有意思的BUG</title>
+    <link href="http://nonblock.cn/2017/05/21/c-array-point/"/>
+    <id>http://nonblock.cn/2017/05/21/c-array-point/</id>
+    <published>2017-05-21T07:08:12.000Z</published>
+    <updated>2017-05-23T01:44:55.368Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果你对C的指针和数组非常了解，就没必要往下看了。否则，还是建议花两分钟看下: )<br><a id="more"></a></p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* a.c */</span></div><div class="line"><span class="keyword">int</span> p[<span class="number">10</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">a</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">p[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">////////////////////////////</span></div><div class="line"><span class="comment">/* b.c */</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="keyword">extern</span> <span class="keyword">int</span> *p;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">b</span> <span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, p[<span class="number">0</span>])</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">////////////////////////////</span></div><div class="line"><span class="comment">/* main.c */</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"a.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"b.h"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">a();</div><div class="line">b();</div><div class="line"><span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>代码很简单，请仔细阅读，然后回答我的两个问题</p><ul><li><p>问题1：这段代码输出什么？</p><blockquote><p>如果你认为是1，那么恭喜你，今天你又要学到新的东西了。<br>  正确答案是编译运行后是<strong>”segmentation fault“</strong> :(, oh no, WTF!!!</p></blockquote></li><li><p>问题2: 为什么会这样？</p><blockquote><p>原因就在与：数组和指针并不相同。</p></blockquote></li></ul><p>虽然初出茅庐的时候就知道数组与指针的差异，但还是在被某位大神鄙视后，也没有醒悟。</p><h2 id="WHY"><a href="#WHY" class="headerlink" title="WHY !!!???"></a>WHY !!!???</h2><p>我们首先需要明白两个问题</p><ul><li><p>区分定义和声明<br>声明相当于普通的声明：它所说明的并非自身，而是描述其他地方的创建的对象.<br>定义相当于特殊的声明：它为对象分配内存.</p></li><li><p>指针与数组的区别之一<br>指针间接访问数据，首先取得指针的内容，把它作为地址，然后从这个地址提取数据.<br>数组直接访问数据，a[i]只是简单的以a+i为地址取得数据.</p></li></ul><p>那么当我在b.c以extern int *p,然后用p[0]来引用其中的元素时，编译器做了什么呢？</p><ol><li>取得符号表中p的地址，提取存储在此处的指针</li><li>把下表所表示的偏移量与指针的值想家，产生一个地址。</li><li>访问上面这个地址，取得字符。</li></ol><p>也就是说当用p[i]这种形式提取这个声明的内容时，编译器却把他当成了一个指针，把1解释为地址显然是不对的</p><h2 id="我们应当怎么做"><a href="#我们应当怎么做" class="headerlink" title="我们应当怎么做"></a>我们应当怎么做</h2><p>指针的外部声明与数组定义不匹配的问题很容易修正，只要修改声明，使之与定义相匹配即可。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//file1</span></div><div class="line"><span class="keyword">int</span> a[<span class="number">100</span>]</div><div class="line"></div><div class="line"><span class="comment">//file2</span></div><div class="line"><span class="keyword">extern</span> <span class="keyword">int</span> a[];</div></pre></td></tr></table></figure></p><p>这里只是简单剖析了下这个问题，也算是一个记录，如果想深入了解，建议还是看下<em>C专家编程</em>这本书</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果你对C的指针和数组非常了解，就没必要往下看了。否则，还是建议花两分钟看下: )&lt;br&gt;
+    
+    </summary>
+    
+      <category term="C/C++" scheme="http://nonblock.cn/categories/C-C/"/>
+    
+    
+      <category term="编程语言" scheme="http://nonblock.cn/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>New Start</title>
+    <link href="http://nonblock.cn/2017/03/27/new-start/"/>
+    <id>http://nonblock.cn/2017/03/27/new-start/</id>
+    <published>2017-03-27T06:00:00.000Z</published>
+    <updated>2017-04-13T10:56:45.600Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前写过一些blog，但是零零散散，其实也没什么质量可言，又因为工作原因，时常没有心情想去整理。</p><p>由于最近在看一些技术博客，收益颇丰，所以决定重新写Blog，之前的文章就有时间再同步过来吧。</p><blockquote><p>希望这次可以坚持:)</p></blockquote><p><img src="bird.jpeg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;之前写过一些blog，但是零零散散，其实也没什么质量可言，又因为工作原因，时常没有心情想去整理。&lt;/p&gt;
+&lt;p&gt;由于最近在看一些技术博客，收益颇丰，所以决定重新写Blog，之前的文章就有时间再同步过来吧。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;希望这次可以坚持:)&lt;/p&gt;
+      
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://nonblock.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="心情" scheme="http://nonblock.cn/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对于链接的一些理解</title>
+    <link href="http://nonblock.cn/2015/04/09/link/"/>
+    <id>http://nonblock.cn/2015/04/09/link/</id>
+    <published>2015-04-09T07:46:24.000Z</published>
+    <updated>2017-08-19T08:15:44.797Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近逛github， 无意间发现一个嵌入式教学者的github，clone了一个他实现的Mini-arm-os（感觉应该是一个教学模型- -），他的开发平台是用的是linux，看了他的代码（感觉自己太水了- -！，似乎废话有点多）。直接谈谈对.ld文件的理解吧。<br><a id="more"></a></p><h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>Linux平台不像win下，已经有了简单易用的IDE，编译链接 由IDE全部搞定，链接脚本往往由自己编写，如果对这方面理解不够是很难写出来的。萝卜青菜各有所爱，我认为即使IDE帮我们解决了这些问题，让我们把大部分时间集中在代码的实现上，但是这些基本的东西还是有必要知道的-o-。</p><p>对于由OS管理的硬件，程序的运行由加载器帮我们解决了数据以及代码的存储问题，但是对于单片机来讲我们是没有加载器这个东西的，代码以及数据的存放需要我们自己解决。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">ENTRY(main)</div><div class="line"></div><div class="line">MEMORY</div><div class="line">&#123;</div><div class="line">FLASH (rx) : ORIGIN = <span class="number">0x00000000</span>, LENGTH = <span class="number">128</span>K</div><div class="line">RAM (rwx) : ORIGIN = <span class="number">0x20000000</span>, LENGTH = <span class="number">40</span>K</div><div class="line">&#125;</div><div class="line"></div><div class="line">SECTIONS</div><div class="line">&#123;</div><div class="line">.text :</div><div class="line">&#123;</div><div class="line">KEEP(*(.isr_vector))</div><div class="line">*(.text)</div><div class="line">*(.text.*)</div><div class="line">*(.rodata)</div><div class="line">_sromdev = .;</div><div class="line">_eromdev = .;</div><div class="line">_sidata = .;</div><div class="line">&#125; &gt;FLASH</div><div class="line"></div><div class="line">.data : AT(_sidata)</div><div class="line">&#123;</div><div class="line">_sdata = .;</div><div class="line">*(.data)</div><div class="line">*(.data*)</div><div class="line">_edata = .;</div><div class="line">&#125; &gt;RAM</div><div class="line"></div><div class="line">.bss :</div><div class="line">&#123;</div><div class="line">_sbss = .;</div><div class="line">*(.bss)</div><div class="line">_ebss = .;</div><div class="line">&#125; &gt;RAM</div><div class="line"></div><div class="line">_estack = ORIGIN(RAM) + LENGTH(RAM);</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>一个编译过的程序一般包括三个段: .text, .data, .bss。简单来讲这三个段的意义如下：</p><ul><li>.text: 就是代码段，存储可执行的指令</li><li>.data: 存储初始化的全局变量以及静态变量</li><li>.bss : 存储未初始化的全局变量，赋值为0（应该是个规定吧）</li></ul><p>RAM中的布局如下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| stack_top |</div><div class="line">| <span class="built_in">stack</span>     |</div><div class="line">| heap      |</div><div class="line">| .bss      |</div><div class="line">| .data     |</div></pre></td></tr></table></figure><p>一般情况下，我们在Win下使用MDK编译程序后，会outPut一个信息(这里已我手头的一个程序为例)：</p><blockquote><p>Program Size: Code=28268 RO-data=3416 ZI-data=5816</p></blockquote><p>看下MDK的帮助文档，解释如下</p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Code (inc. Data)</div><div class="line">Shows how many bytes are occupied by code. In this image, there are 3712 bytes of code. This includes 1580 bytes of inline data (inc. data), for example, literal pools, and short strings. </div><div class="line"></div><div class="line">RO Data</div><div class="line">Shows how many bytes are occupied by read-only data. This is in addition to the inline data included in the Code (inc. data) column.</div><div class="line"></div><div class="line">RW Data</div><div class="line">Shows how many bytes are occupied by read-write data.</div><div class="line"></div><div class="line">ZI Data</div><div class="line">Shows how many bytes are occupied by zero-initialized data.</div></pre></td></tr></table></figure><p>结合MDK编译后生成的.map文件能够看到各数据的存储地址, 仔细观察Memory Map of the image会发现</p><p>RO-Data 以及Code 存储的区域起始地址是0x08000000这个正是stm32的FLASH的起始地址，Size的值就是Code + RO-data 的大小， 即.text段</p><p>.data .bss 段 的存储区域是0x20000000, 这个地址是STM32的SRAM地址, Size大小也等于RW-data + RI-data.</p><p>如果细心还会发现，此段的Size包含了启动文件中我们设置的 head size + stack size，而且这部分数据被初始化为0了。</p><p>研究CM3内核发现，复位后的MSP也就是堆栈指针，恰好是0x20000000 + Size 的位置。当然到此所有关于stack heap的理论知识 就很容易验证了。</p><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>这么来讲我们已知的知识，也就是什么全局变量局部变量静态变量乱七八糟的知识基础还是稳固的（ 以前还以为单片机不是这样子的。。。郁闷。。被各种网上的观点误导）。</p><p>我们的Heap似乎没有合理利用啊，如果不分配的话（似乎也不算啥结论哈）。</p><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>这里只是表达了对程序编译过程的一些理解，整个CM3内核还是挺复杂的。还需继续研究啊。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近逛github， 无意间发现一个嵌入式教学者的github，clone了一个他实现的Mini-arm-os（感觉应该是一个教学模型- -），他的开发平台是用的是linux，看了他的代码（感觉自己太水了- -！，似乎废话有点多）。直接谈谈对.ld文件的理解吧。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="C/C++" scheme="http://nonblock.cn/categories/C-C/"/>
+    
+    
+      <category term="编程语言" scheme="http://nonblock.cn/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>二级指针，以及在链表中的应用</title>
+    <link href="http://nonblock.cn/2015/03/04/pointers-to-pointers/"/>
+    <id>http://nonblock.cn/2015/03/04/pointers-to-pointers/</id>
+    <published>2015-03-04T07:46:24.000Z</published>
+    <updated>2017-08-19T08:16:06.761Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前读过一篇Linus关于对二级指针在链表中的应用的文章(<a href="http://coolshell.cn/articles/8990.html" title="linus" target="_blank" rel="external">Linus:利用二级指针删除单向链表</a>)，未能领悟其中精妙，最近回顾了下链表，重读旧文，有了不一样的认识。</p><p>模板代码如下</p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> node &#123;</div><div class="line">        <span class="keyword">struct</span> node *next;</div><div class="line">        ...</div><div class="line">&#125; node;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">bool</span> <span class="params">(*remove_fn)</span><span class="params">(node <span class="keyword">const</span> *v)</span></span>;</div><div class="line"></div><div class="line"><span class="function">node *<span class="title">remove_if</span><span class="params">(node *head, remove_fn rm)</span></span></div><div class="line">&#123;</div><div class="line">        <span class="keyword">for</span> (node *prev = <span class="literal">NULL</span>, *curr = head; curr != <span class="literal">NULL</span>;) &#123;</div><div class="line">                node *<span class="keyword">const</span> next = curr-&gt;next;</div><div class="line">                <span class="keyword">if</span> (rm(curr)) &#123;</div><div class="line">                        <span class="keyword">if</span> (prev)</div><div class="line">                                prev-&gt;next = next;</div><div class="line">                        <span class="keyword">else</span> </div><div class="line">                                head = next;</div><div class="line">                        <span class="built_in">free</span>(curr);</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        prev = curr;</div><div class="line">                &#125;</div><div class="line">                curr = next;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> head;</div><div class="line">&#125;</div></pre></td></tr></table></figure><blockquote><p>文中提到：这段代码维护了两个节点指针prev 和 curr, 标准的教科书写法–删除当前节点时，需要一个previous的指针，并且喊要这里还需要做一个便捷条件的判断–curr是否为链表头.</p></blockquote><p>prev维持当前节点的上一个节点， curr维持当前的节点，删除当前节点及修改前一个节点的prev的next段的指向，由于prev初始化为NULL，用来查询是否为头结点， 如果删除的是第一个节点，则修改链表头指针的指向, 释放当前要删除的节点.</p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">prev-&gt;next = curr-&gt;next;</div></pre></td></tr></table></figure><p>及通过这种方式维持链表的连接.</p><p>在大神看来这中方式，是不理解指针的人的做法。- - 。要做到core low-level coding</p><p>大神代码如下:</p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove_if</span><span class="params">(node **head, remove_fn rm)</span></span></div><div class="line">&#123;</div><div class="line">        <span class="keyword">for</span> (node **curr = head; *curr;) &#123;</div><div class="line">                node *entry = *curr;</div><div class="line">                <span class="keyword">if</span> (rm(entry)) &#123;</div><div class="line">                        *curr = entry-&gt;next;</div><div class="line">                        <span class="built_in">free</span>(entry);</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        curr = &amp;entry-&gt;next;</div><div class="line">                &#125;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>来分析一下这段代码：</p><p>这里的抛弃了prev指针来记录上一个节点，而且不用判断链表头，转而使用二级指针curr;</p><p>curr之中始终保存了当前节点next的节点, 删除节点变的很简单，只需要修改当前的next域数据, 为下一个节点的next域数据即可.</p><p>将curr初始化为head，从头结点开始遍历链表, 如果删除的是头节点,直接修改链表头节点的地址内容.即解决了删除第一个节点的问题</p><p>如果删除的不是第一个节点，即为一般情况就更好理解.</p><p>下面提供一个初始化链表时采用的一个二级指针代码</p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">strcut <span class="keyword">list_t</span> &#123;</div><div class="line">        <span class="keyword">struct</span> <span class="keyword">list_t</span> *rest;</div><div class="line">        <span class="keyword">int</span> first;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">struct</span> list_t *</span></div><div class="line"><span class="title">list_list</span><span class="params">(<span class="keyword">int</span> x, ...)</span> &#123;</div><div class="line">        va_list ap;</div><div class="line">        <span class="keyword">struct</span> <span class="keyword">list_t</span> *<span class="built_in">list</span>, **p = &amp;<span class="built_in">list</span>;</div><div class="line">        va_start(ap, x);</div><div class="line">        <span class="keyword">for</span> (; x != <span class="number">0</span>; x = va_arg(ap, <span class="keyword">int</span>)) &#123;</div><div class="line">                *p = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span> **p);</div><div class="line">                (*p)-&gt;first = x;</div><div class="line">                p = &amp;(*P)-&gt;rest;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        *p = <span class="literal">NULL</span>;</div><div class="line">        va_end(ap);</div><div class="line">        <span class="keyword">return</span> <span class="built_in">list</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span></span></div><div class="line"><span class="title">list_test</span><span class="params">(<span class="keyword">void</span>)</span> &#123;</div><div class="line">        <span class="keyword">struct</span> <span class="keyword">list_t</span> *<span class="built_in">list</span>;</div><div class="line">        <span class="built_in">list</span> = <span class="built_in">list</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">0</span>);</div><div class="line">        <span class="keyword">while</span> (<span class="built_in">list</span>) &#123;</div><div class="line">                <span class="built_in">printf</span> (<span class="string">"%d \n"</span>, <span class="built_in">list</span>-&gt;first);</div><div class="line">                <span class="built_in">list</span> = <span class="built_in">list</span>-&gt;rest;</div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">        list_test();        </div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;之前读过一篇Linus关于对二级指针在链表中的应用的文章(&lt;a href=&quot;http://coolshell.cn/articles/8990.html&quot; title=&quot;linus&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Linus:利用二级指针删除
+      
+    
+    </summary>
+    
+      <category term="C/C++" scheme="http://nonblock.cn/categories/C-C/"/>
+    
+    
+      <category term="编程语言" scheme="http://nonblock.cn/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UIP内存管理</title>
+    <link href="http://nonblock.cn/2015/03/01/uip-memory-block-management/"/>
+    <id>http://nonblock.cn/2015/03/01/uip-memory-block-management/</id>
+    <published>2015-03-01T07:08:12.000Z</published>
+    <updated>2017-08-19T08:15:56.685Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近几天在看c语言接口与实现内存管理这部分，有点感触。<br><a id="more"></a></p><p>由于一直做的是单片机的程序开发，而以往接触到的公司的项目，基本上从来不使用malloc分配heap空间，往往使用全局变量, 虽然避免了内存分配与回收这块的管理，降低了内存管理复杂度以及风险，但是整个程序会显得很混乱，全局变量满天飞，让人头疼。之前的数据结构的知识几乎全部是建立在动态分配内存之上的。如果不使用malloc动态分配，让人不知如何下手（水平有限啊）。</p><p>想到找些好的项目代码来观摩一下。对uip倒是有点印象。直接翻源码。</p><p>uip/lib下就是uip memmory management的全部代码: memb.h 以及 memb.c</p><p>uip的内存管理提供了三个接口</p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*initialize a memory block that was declared with MEMB()*/</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">memb_init</span><span class="params">(<span class="keyword">struct</span> memb_blocks *m)</span></span>;</div><div class="line"></div><div class="line"><span class="comment">/* allocate a memory block from a block of memory declared with MEMB()*/</span></div><div class="line"><span class="function"><span class="keyword">void</span> *<span class="title">memn_alloc</span><span class="params">(<span class="keyword">struct</span> memb_blocks *m)</span></span>;</div><div class="line"></div><div class="line"><span class="comment">/* deallocate a memory block form a memory block previously declared with MEMB()*/</span></div><div class="line"><span class="function"><span class="keyword">char</span> <span class="title">memb_free</span><span class="params">(<span class="keyword">struct</span> memb_blocks *m, <span class="keyword">void</span> *ptr)</span></span>;</div></pre></td></tr></table></figure><p>这里MEMB()是一个分配空间的宏，目的是分配一个空间。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MEMB(name, structure, num) \</span></div><div class="line">        static char MEMB_CONCAT(name, _memb_count)[num]; \</div><div class="line">        static structure MEMB_CONCAT(name, _memb_mem)[num]; \</div><div class="line">        static struct memb_blocks name = &#123; sizeof (structure), num, \</div><div class="line">                                                MEMB_CONCAT(name, _memb_count), \</div><div class="line">                                                (void *)MEMB_CONCAT(name, _memb_mem)&#125;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> memb_blocks &#123;</div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">short</span> size;</div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">short</span> num;</div><div class="line">        <span class="keyword">char</span> *count;</div><div class="line">        <span class="keyword">void</span> *mem;</div><div class="line">&#125;;</div></pre></td></tr></table></figure><p>这里分配空间的方式，是分配一个静态变量- -</p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MEMB_CONCAT2(s1, s2) s1##s2</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MEMB_CONCAT(s1, s2) MEMB_CONCAT2(s1, s2)</span></div></pre></td></tr></table></figure><p>这里的宏来连接字符串, 用于命名.</p><blockquote><ul><li>alloc</li></ul></blockquote><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m-&gt;num; ++i) &#123;</div><div class="line">        <span class="keyword">if</span> (m-&gt;count[i] == <span class="number">0</span>) &#123;</div><div class="line">                ++(m-&gt;count[i]);</div><div class="line">                <span class="keyword">return</span> (<span class="keyword">void</span> *)((<span class="keyword">char</span> *)m-&gt;mem + (i * m-&gt;size));</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>uip的内存管理相对比较简单，分配的内存块有一个专门存储信息的结构体，分配的时候寻找一个未使用的块，结构体的count元素应该是一个使用标记</p><blockquote><ul><li>free</li></ul></blockquote><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ptr2 = (<span class="keyword">char</span> *)m-&gt;mem;</div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m-&gt;num; ++i) &#123;</div><div class="line">        <span class="keyword">if</span> (ptr2 == (<span class="keyword">char</span> *)ptr) &#123;</div><div class="line">                <span class="keyword">if</span> (m-&gt;count[i] &gt; <span class="number">0</span>) &#123;</div><div class="line">                        -- (m-&gt;count[i]);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> m-&gt;count[i];</div><div class="line">        &#125;</div><div class="line">        ptr2 += m-&gt;size;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>通过查找整个所分配的内存块，找到指针，检查是否使用，如果使用则取消标记</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>也许是不太了解作者这么分配的内存的使用方法，所以不是很理解作者这么分配内存的做法。</p><p>让我困惑不解的地方就是，如果所分配的内存的数组元素空间很小的话，先被分配的空间，如果释放过后，后又被重新分配，似乎这里并没有边界检查。</p><p>但是如果作者这里的内存管理的方式是针对固定的数据类型的话，似乎就不会存在这个问题。</p><p>这里先留一个坑，以后弄明白了再来填补吧。<br>//TODO</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近几天在看c语言接口与实现内存管理这部分，有点感触。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="C/C++" scheme="http://nonblock.cn/categories/C-C/"/>
+    
+    
+      <category term="编程语言" scheme="http://nonblock.cn/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+</feed>
