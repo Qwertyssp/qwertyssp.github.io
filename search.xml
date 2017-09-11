@@ -3,6 +3,36 @@
   
     
     <entry>
+      <title><![CDATA[为什么学习python]]></title>
+      <url>/2017/09/11/why-python/</url>
+      <content type="html"><![CDATA[<p>由于工作性质原因，主要是用的语言是C。工作这么多年，也在业余时间耳闻目染了很多其他语言，了解过的包括:lua, python, c++, java, js。基本上涵盖了目前主流的开发语言。由于一直没有需求，也就没有仔细学习并运用。所以，也谈不上学会了，只能说对语法有点了解。由于最近时间比较充裕，希望重新学习一门实用性比较强的语言。一来用来锻炼一下自己切入新领域的学习能力，二来拓宽一下自己的视野。</p>
+<h2 id="Why-Python"><a href="#Why-Python" class="headerlink" title="Why Python ?"></a>Why Python ?</h2><p>语言之争是程序界永恒的话题。长长的鄙视链，永无止境。这显然不是此文目的。也并不是我选择这门语言的依据。<br>我们知道现有的语言的编程范式有：过程式，面向对象，函数式，逻辑式。但是，这么多范式，究其原因，无非都有个共同的主题：技术的发展都是在围绕着解决“软件的复杂度”这个基本的需求而发展的。<br>说了这么多废话，现在来说下，为啥要学Python。Python作为一门脚本语言，简洁，易读，可扩展。非常接近自然语言，很适合初学者入门。当然，上面是官方腔。因为我还没认真看过。不过，据我所知，Python确实简单，拥有强大基础库以及第三方库，以此为基础我们非常容易实现自己想要的业务，无需重新造轮子。这极有利于我们去实现一些常用的脚本功能，或者作为脚手架搭建测试环境，极大的提高我们的工作效率。<br>最近几年函数式编程语言逐渐浮出水面，很多语言也开始支持函数式编程的特性，Python也对函数式编程做了部分支持。作为一名开发人员，对新技术要不断学习探索，这也是我选用此语言的一个原因。<br>更重要的原因是：没事写点小东西，用来安抚自己。告诉别人，看!我也是程序员~</p>
+<h2 id="How-To-Learn"><a href="#How-To-Learn" class="headerlink" title="How To Learn ?"></a>How To Learn ?</h2><p>如何去学习一门新的编程语言呢？这也是我需要解决的一个问题。《SICP》一书的作者列举了三点我们需要关注的语言特性：</p>
+<ul>
+<li>primitive elements. 基本元素</li>
+<li>mean of combination. 组合手段</li>
+<li>means of abstraction. 抽象手段</li>
+</ul>
+<p>以上特性，基本蕴含了所有编程语言的特性，并且也是一个语言设计者从开始就要考虑的。<br>primitive elements，可以理解为语言的基本符号，也就是词法部分。<br>mean of combination，可以理解为李永基本元素通过组合的过程构建大型程序的手段。<br>mean of abstraction，表示抽象，抽象是解决软件复杂度的重要手段，让软件的可读性，可扩展，可重复可利用得到提升。</p>
+<p>我将会基于这三点去学习Python, 当然，如果此方法可行，也会总结提炼用于以后的工作当中。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> python </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 编程语言 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[符号冲突问题]]></title>
       <url>/2017/08/17/symbol-multiple-definition/</url>
       <content type="html"><![CDATA[<p>最近项目中遇到的一个问题：项目需求增加功能B，为了尽快完成此功能，选择使用开源库，此库依赖于libpng.a。由于我们的软件只是整个工程架构中的一部分，原有的软件已经使用了libpng.a，但是版本未知。因此在最终编译的时候会产生符号冲突的问题。<br><a id="more"></a><br>最简单暴力的方法无非是手动替换所有编译时报错的函数名，但是，本来使用的就是开源库，符号冲突的数量是人工修改无法承担的。<br>后来咨询了下<a href="http://blog.gotocoding.com" title="周大神博客" target="_blank" rel="external">重归混沌</a>同学，大神给的意见是修改替换.o目标文件中的符号名，当然是使用脚本修改。</p>
