@@ -18,16 +18,16 @@
 <blockquote>
 <p>1.同步和异步关注的是消息通信机制 (synchronous communication/ asynchronous communication)所谓同步，就是在发出一个<em>调用</em>时，在没有得到结果之前，该<em>调用</em>就不返回。但是一旦调用返回，就得到返回值了。换句话说，就是由<em>调用者</em>主动等待这个<em>调用</em>的结果。而异步则是相反，<em>调用</em>在发出之后，这个调用就直接返回了，所以没有返回结果。换句话说，当一个异步过程调用发出后，调用者不会立刻得到结果。而是在<em>调用</em>发出后，<em>被调用者</em>通过状态、通知来通知调用者，或通过回调函数处理这个调用。<br> 2.阻塞和非阻塞关注的是程序在等待调用结果（消息，返回值）时的状态.阻塞调用是指调用结果返回之前，当前线程会被挂起。调用线程只有在得到结果之后才会返回。非阻塞调用指在不能立刻得到结果之前，该调用不会阻塞当前线程。</p>
 </blockquote>
-<h2 id="Reactor事件处理模型"><a href="#Reactor事件处理模型" class="headerlink" title="Reactor事件处理模型"></a>Reactor事件处理模型</h2><p>Reactor模型是同步I/O时间处理的一种常见模型，一个典型的Reactor模型类图如下：<br><img src="Reactor1.png" alt=""><br>Reactor核心思想：将关注的I/O事件注册到多路复用器上，一旦I/O事件触发，将时间分发到时间处理器中，执行就绪I/O事件对应的处理函数中。</p>
+<h2 id="Reactor事件处理模型"><a href="#Reactor事件处理模型" class="headerlink" title="Reactor事件处理模型"></a>Reactor事件处理模型</h2><p>Reactor模型是同步I/O事件处理的一种常见模型，一个典型的Reactor模型类图如下：<br><img src="Reactor1.png" alt=""><br>Reactor核心思想：将关注的I/O事件注册到多路复用器上，一旦I/O事件触发，将事件分发到事件处理器中，执行就绪I/O事件对应的处理函数中。</p>
 <ul>
 <li>多路复用器：由操作系统提供接口，Linux下有select、poll、epoll</li>
-<li>事件分离器：将多路复用器返回的就绪事件分发到时间处理器中</li>
+<li>事件分离器：将多路复用器返回的就绪事件分发到事件处理器中</li>
 <li>事件处理器：处理就绪事件的处理函数</li>
 </ul>
 <p>Reactor类机构中包含如下角色：</p>
 <ul>
 <li>Handle: 标示文件描述符</li>
-<li>Event Demultiplexer: 执行多路时间分解操作，对操作系统内核实现I/O复用接口的封装；用于阻塞等待发生在句柄集合上的一个或多个事件（select/poll/epoll)</li>
+<li>Event Demultiplexer: 执行多路事件分解操作，对操作系统内核实现I/O复用接口的封装；用于阻塞等待发生在句柄集合上的一个或多个事件（select/poll/epoll)</li>
 <li>Event Handler: 事件处理接口</li>
 <li>Event Handler A(B)：实现应用程序锁提供的特定事件处理逻辑；</li>
 <li>Reactor: 反应器，定义一个接口，实现以下功能：<ol>
